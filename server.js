@@ -1,6 +1,16 @@
 import express from 'express'
 import mongoose from 'mongoose'
 
+mongoose.connect('mongodb://localhost:27017/course_shop')
+
+const userSchema = new mongoose.Schema({
+    username : String , 
+    passwordHash : String , 
+    phonenumber : String
+})
+
+const user = mongoose.model("User" , userSchema)
+
 const app = express()
 const port = 3000
 
